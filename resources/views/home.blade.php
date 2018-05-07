@@ -15,6 +15,7 @@
                     @endif
 
                     You are logged in!
+                    <a href="/tasks">タスク</a>
                 </div>
             </div>
         </div>
