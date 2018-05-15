@@ -9,5 +9,12 @@
             <button class="tasks_btn">ボタン</button>
         </form>
     </div>
+    <ul class="tasks_lists">
+        <li class="tasks_list">
+            タスク表示
+            <button class="tasks_btn">編集</button>
+            <button class="tasks_btn">削除</button>
+        </li>
+    </ul>
 </div>
 @endsection
