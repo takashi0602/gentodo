@@ -1,0 +1,12 @@
+.c-btn {
+  background-color: #ccc;
+  border-radius: 20px;
+  border: none;
+  &:hover {
+    background-color: #aaa;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+

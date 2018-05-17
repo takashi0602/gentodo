@@ -1,0 +1,8 @@
+.c-textbox {
+  border:solid 1px #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+.c-textbox:focus {
+  border: solid 1px #0099ff;
+}

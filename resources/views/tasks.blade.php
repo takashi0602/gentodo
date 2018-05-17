@@ -1,24 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="c-container">
   <h1>タスク作ったお前♪</h1>
-  <div class="tasks_form">
+  <div class="u-mb2">
     <form action="{{ url('tasks/create') }}" method="POST">
       {{ csrf_field() }}
-      <input class="tasks_textBox" type="text" name="task_name">
-      <button class="tasks_btn" type="submit">ボタン</button>
+      <input class="c-textbox" type="text" name="task_name">
+      <button class="c-btn" type="submit">ボタン</button>
     </form>
   </div>
   @if(count($tasks) > 0)
-    <ul class="tasks_lists">
+    <ul class="c-lists u-p0">
       @foreach($tasks as $task)
-        <li class="tasks_lists">
+        <li class="u-mb2">
           {{ $task->task_name }}
-          <form class="tasks_deleteArea" action="{{ url('tasks/' .$task->id) }}" method="POST">
+          <form class="u-inlineblock" action="{{ url('tasks/' .$task->id) }}" method="POST">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
-            <button class="tasks_btn" type="submit">削除</button>
+            <button class="c-btn" type="submit">削除</button>
           </form>
         </li>
       @endforeach
