@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="c-container">
-  <h1>ペンタスク</h1>
+  <h1>マイタスク</h1>
   <div class="u-mb2">
     <form action="{{ url('tasks/create') }}" method="POST">
       {{ csrf_field() }}
@@ -24,7 +24,8 @@
       @endforeach
     </ul>
   @else
-    <p>タスクを追加してね！</p>
+    <div class="c-balloon">タスクを追加してね！</div>
+    <div class="c-image_penguin"></div>
   @endif
 </div>
 @endsection

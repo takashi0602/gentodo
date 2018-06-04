@@ -10411,6 +10411,23 @@ a.text-dark:focus {
   }
 }
 
+.c-balloon {
+  display: inline-block;
+  position: relative;
+  border-radius: 10px;
+  background-color: #ccc;
+  padding: 5px 10px;
+}
+
+.c-balloon:before {
+  position: absolute;
+  content: "";
+  border: 15px solid transparent;
+  border-top: 15px solid #ccc;
+  border-right: 15px solid #ccc;
+  top: 25px;
+}
+
 .c-btn {
   background-color: #ccc;
   border-radius: 20px;
@@ -10432,6 +10449,13 @@ a.text-dark:focus {
   padding: 0 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.c-image_penguin {
+  background-image: url("/images/penguin_1.svg");
+  background-size: cover;
+  width: 150px;
+  height: 150px;
 }
 
 .c-lists {
@@ -10464,6 +10488,35 @@ a.text-dark:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.u-space_between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.u-space_between {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.u-space_between {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.u-space_between {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.u-space_between {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .u-m0 {
