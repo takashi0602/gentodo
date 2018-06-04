@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="c-container">
-  <h1>タスク作ったお前♪</h1>
+  <h1>ペンタスク</h1>
   <div class="u-mb2">
     <form action="{{ url('tasks/create') }}" method="POST">
       {{ csrf_field() }}
