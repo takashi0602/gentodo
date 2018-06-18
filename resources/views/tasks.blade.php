@@ -7,7 +7,7 @@
     <form action="{{ url('tasks/create') }}" method="POST">
       {{ csrf_field() }}
       <input class="c-textbox" type="text" name="task_name">
-      <button class="c-btn" type="submit">ボタン</button>
+      <button class="c-btn" type="submit">作成</button>
     </form>
   </div>
   @if(count($tasks) > 0)
@@ -15,7 +15,11 @@
       @foreach($tasks as $task)
         <li class="u-mb2">
           {{ $task->task_name }}
-          <form class="u-inlineblock" action="{{ url('tasks/' .$task->id) }}" method="POST">
+          <form class="u-inlineblock" action="{{ url('tasks/edit/' .$task->id) }}" method="POST">
+            {{ csrf_field() }}
+            <button class="c-btn" type="submit">編集</button>
+          </form>
+          <form class="u-inlineblock" action="{{ url('tasks/delete/' .$task->id) }}" method="POST">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
             <button class="c-btn" type="submit">削除</button>

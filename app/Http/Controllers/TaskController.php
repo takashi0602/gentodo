@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Helper\TableCell;
 use Validator;
 use Auth;
 
@@ -27,7 +28,7 @@ class TaskController extends Controller
   {
     // バリデーション
     $validator = Validator::make($request->all(), [
-      'task_name' => 'required | min: 1 | max: 255'
+      'task_name' => 'required | min: 1 | max: 50'
     ]);
 
     // バリデーションエラー
@@ -37,11 +38,44 @@ class TaskController extends Controller
         ->withErrors($validator);
     }
 
-    // Eloquentモデル
-    $tasks = new Task;
-    $tasks->user_id = Auth::user()->id;
-    $tasks->task_name = $request->task_name;
-    $tasks->save();
+    // createメソッド
+    Task::create([
+      'user_id' => Auth::user()->id,
+      'task_name' => $request->task_name
+    ]);
+
+    return redirect('/tasks');
+  }
+
+  public function edit($task_id)
+  {
+    $tasks = Task::where('user_id', Auth::user()->id)->find($task_id);
+
+    return view('edit', [
+      'task' => $tasks
+    ]);
+  }
+
+  public function update(Request $request)
+  {
+    // バリデーション
+    $validator = Validator::make($request->all(), [
+      'task_name' => 'required | min: 1 | max: 50'
+    ]);
+
+    // バリデーションエラー
+    if($validator->fails()) {
+      return redirect('/tasks/edit')
+        ->withInput()
+        ->withErrors($validator);
+    }
+
+    $tasks = Task::find($request->id);
+
+    $tasks = Task::updateOrCreate(
+      [ 'user_id', Auth::user()->id ],
+      [ 'user_id' => Auth::user()->id, 'task_name' => $request->task_name ]
+    );
 
     return redirect('/tasks');
   }
