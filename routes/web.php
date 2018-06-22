@@ -21,7 +21,7 @@ Route::get('/tasks', 'TaskController@index');
 
 Route::post('/tasks/create', 'TaskController@create');
 
-Route::post('/tasks/edit/{tasks}', 'TaskController@edit');
+Route::post('/tasks/edit/{id}', 'TaskController@edit');
 
 Route::post('/tasks/update', 'TaskController@update');
 

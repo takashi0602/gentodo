@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="c-container">
+<section>
   <h1>マイタスク</h1>
   <div class="u-mb2">
     <form action="{{ url('tasks/create') }}" method="POST">
@@ -31,5 +31,5 @@
     <div class="c-balloon">タスクを追加してね！</div>
     <div class="c-image_penguin"></div>
   @endif
-</div>
+</section>
 @endsection

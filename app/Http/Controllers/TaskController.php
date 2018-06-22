@@ -17,7 +17,7 @@ class TaskController extends Controller
 
   public function index()
   {
-    $tasks = Task::orderBy('create_at', 'asc')->get();
+    $tasks = Task::where('user_id', Auth::user()->id)->orderBy('create_at', 'asc')->get();
 
     return view('tasks', [
       'tasks' => $tasks
@@ -49,10 +49,10 @@ class TaskController extends Controller
 
   public function edit($task_id)
   {
-    $tasks = Task::where('user_id', Auth::user()->id)->find($task_id);
+    $task = Task::where('user_id', Auth::user()->id)->find($task_id);
 
     return view('edit', [
-      'task' => $tasks
+      'task' => $task
     ]);
   }
 
@@ -70,10 +70,8 @@ class TaskController extends Controller
         ->withErrors($validator);
     }
 
-    $tasks = Task::find($request->id);
-
-    $tasks = Task::updateOrCreate(
-      [ 'user_id', Auth::user()->id ],
+    Task::updateOrCreate(
+      [ 'user_id' => Auth::user()->id, 'id' => $request->id ],
       [ 'user_id' => Auth::user()->id, 'task_name' => $request->task_name ]
     );
 
