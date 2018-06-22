@@ -26,3 +26,7 @@ Route::post('/tasks/edit/{id}', 'TaskController@edit');
 Route::post('/tasks/update', 'TaskController@update');
 
 Route::delete('/tasks/delete/{task}', 'TaskController@delete');
+
+Route::get('/logout', function() {
+  return view('logout');
+});
