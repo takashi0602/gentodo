@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use App\User;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Helper\TableCell;
 use Validator;
@@ -73,6 +74,21 @@ class TaskController extends Controller
     Task::updateOrCreate(
       [ 'user_id' => Auth::user()->id, 'id' => $request->id ],
       [ 'user_id' => Auth::user()->id, 'task_name' => $request->task_name ]
+    );
+
+    return redirect('/tasks');
+  }
+
+  public function complete(Request $request)
+  {
+    Task::updateOrCreate(
+      [ 'user_id' => Auth::user()->id, 'id' => $request->id ],
+      [ 'complete_flg' => true ]
+    );
+
+    User::updateOrCreate(
+      [ 'id' => Auth::user()->id ],
+      [ 'amount' => ++Auth::user()->amount ]
     );
 
     return redirect('/tasks');

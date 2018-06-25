@@ -17,6 +17,7 @@ class CreateTasksTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('task_name');
+            $table->boolean('complete_flg')->default(false);
             $table->timestamps();
         });
     }
