@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<section>
   <div class="">
     <p>ログアウトしますか？</p>
     <a class="" href="{{ route('logout') }}"
@@ -13,4 +14,5 @@
     </form>
     <a class="" href="{{ url('/tasks') }}">戻る</a>
   </div>
+</section>
 @endsection

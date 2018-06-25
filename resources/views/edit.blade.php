@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<section>
   <div class="c-container">
     <h1>編集</h1>
     <div class="u-mb2">
@@ -12,4 +13,5 @@
       </form>
     </div>
   </div>
+</section>
 @endsection

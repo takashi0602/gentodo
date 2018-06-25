@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Task;
 use App\User;
 use Illuminate\Http\Request;
+use function Sodium\increment;
 use Symfony\Component\Console\Helper\TableCell;
 use Validator;
 use Auth;
@@ -73,7 +74,7 @@ class TaskController extends Controller
 
     Task::updateOrCreate(
       [ 'user_id' => Auth::user()->id, 'id' => $request->id ],
-      [ 'user_id' => Auth::user()->id, 'task_name' => $request->task_name ]
+      [ 'task_name' => $request->task_name ]
     );
 
     return redirect('/tasks');

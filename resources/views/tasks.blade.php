@@ -17,6 +17,7 @@
         @if($task->complete_flg === "0")
           <li class="u-mb2">
             {{ $task->task_name }}
+            {{ $task->created_at->format('m月d日') }}
             <form class="u-inlineblock" action="{{ url('tasks/complete/') }}" method="POST">
               {{ csrf_field() }}
               <button class="c-btn" type="submit">完了</button>
@@ -38,11 +39,14 @@
     </ul>
     @if($count === 0)
       <div class="c-balloon">タスクを追加してね！</div>
-      <div class="c-image_penguin"></div>
+      <div class="c-image_penguin1"></div>
+    @else
+        <div class="c-balloon">現在のタスクは{{ $count }}コありますね。頑張って！</div>
+        <div class="c-image_penguin2"></div>
     @endif
   @else
     <div class="c-balloon">タスクを追加してね！</div>
-    <div class="c-image_penguin"></div>
+    <div class="c-image_penguin1"></div>
   @endif
 </section>
 @endsection

@@ -10451,8 +10451,15 @@ a.text-dark:focus {
           box-sizing: border-box;
 }
 
-.c-image_penguin {
+.c-image_penguin1 {
   background-image: url("/images/penguin_1.svg");
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+}
+
+.c-image_penguin2 {
+  background-image: url("/images/penguin_2.svg");
   background-size: cover;
   width: 150px;
   height: 150px;
