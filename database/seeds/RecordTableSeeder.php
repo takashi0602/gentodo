@@ -14,14 +14,17 @@ class RecordTableSeeder extends Seeder
     {
       Record::truncate();
 
+      $amount = [
+        '0', '10', '50', '100'
+      ];
       $title = [
-        '', '', '', ''
+        'かけだしのペンギン', 'ふつうのペンギン', '一流のペンギン', '伝説のペンギン'
       ];
 
-      for($i = 0; $i < 3; $i++) {
+      for($i = 0; $i < 4; $i++) {
         DB::table('records')->insert([
-          'amount' => 5,
-          'title' => "駆け出しのペンギン",
+          'amount' => $amount[$i],
+          'title' => $title[$i],
         ]);
       }
     }

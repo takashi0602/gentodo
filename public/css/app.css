@@ -10465,6 +10465,13 @@ a.text-dark:focus {
   height: 150px;
 }
 
+.c-image_penguin3 {
+  background-image: url("/images/penguin_3.svg");
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+}
+
 .c-lists {
   list-style: none;
 }
@@ -10764,6 +10771,29 @@ a.text-dark:focus {
 
 .u-pl5 {
   padding-left: 50px;
+}
+
+.u-static {
+  position: static;
+}
+
+.u-relative {
+  position: relative;
+}
+
+.u-fixed {
+  position: fixed;
+}
+
+.u-absolute {
+  position: absolute;
+}
+
+.u-position_center {
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .navbar-laravel {

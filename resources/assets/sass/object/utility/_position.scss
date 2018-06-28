@@ -1,0 +1,23 @@
+// position
+.u-static {
+  position: static;
+}
+
+.u-relative {
+  position: relative;
+}
+
+.u-fixed {
+  position: fixed;
+}
+
+.u-absolute {
+  position: absolute;
+}
+
+// center
+.u-position_center {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
