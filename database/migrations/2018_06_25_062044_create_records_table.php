@@ -15,7 +15,6 @@ class CreateRecordsTable extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('amount');
             $table->string('title');
         });
     }

@@ -10472,6 +10472,13 @@ a.text-dark:focus {
   height: 200px;
 }
 
+.c-image_penguin7 {
+  background-image: url("/images/penguin_7.svg");
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+}
+
 .c-lists {
   list-style: none;
 }

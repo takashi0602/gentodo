@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use App\User;
+use App\Record;
 use Illuminate\Http\Request;
 use function Sodium\increment;
 use Symfony\Component\Console\Helper\TableCell;
@@ -19,7 +20,7 @@ class TaskController extends Controller
 
   public function index()
   {
-    $tasks = Task::where('user_id', Auth::user()->id)->orderBy('create_at', 'asc')->get();
+    $tasks = Task::where('user_id', Auth::user()->id)->where('complete_flg', false)->orderBy('create_at', 'asc')->get();
 
     return view('tasks', [
       'tasks' => $tasks
@@ -87,12 +88,50 @@ class TaskController extends Controller
       [ 'complete_flg' => true ]
     );
 
-    User::updateOrCreate(
-      [ 'id' => Auth::user()->id ],
-      [ 'amount' => ++Auth::user()->amount ]
-    );
+    $amount = ++Auth::user()->amount;
+
+    if($amount >= 10 && $amount < 50) {
+      User::updateOrCreate(
+        [ 'id' => Auth::user()->id ],
+        [ 'amount' => $amount, 'record_id' => 2 ]
+      );
+    } elseif($amount >= 50 && $amount < 100) {
+      User::updateOrCreate(
+        [ 'id' => Auth::user()->id ],
+        [ 'amount' => $amount, 'record_id' => 3 ]
+      );
+    } elseif($amount >= 100) {
+      User::updateOrCreate(
+        [ 'id' => Auth::user()->id ],
+        [ 'amount' => $amount, 'record_id' => 4 ]
+      );
+    } else {
+      User::updateOrCreate(
+        [ 'id' => Auth::user()->id ],
+        [ 'amount' => ++Auth::user()->amount ]
+      );
+    }
 
     return redirect('/tasks');
+  }
+
+  public function mypage()
+  {
+    $tasks = Task::where('user_id', Auth::user()->id)->where('complete_flg', true)->orderBy('create_at', 'asc')->get();
+
+    $user = User::where('id', Auth::user()->id)->get();
+
+    $records = Record::where('id', Auth::user()->record_id)->get();
+
+    foreach($records as $record) {
+      $title = $record->title;
+    }
+
+    return view('mypage', [
+      'tasks' => $tasks,
+      'user' => $user,
+      'title' => $title
+    ]);
   }
 
   public function delete(Task $task)

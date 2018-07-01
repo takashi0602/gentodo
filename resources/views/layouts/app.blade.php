@@ -42,6 +42,7 @@
               <li><a class="nav-link" href="{{ route('register') }}">{{ __('サインアップ') }}</a></li>
             @else
               <li><a class="nav-link" href="{{ url('/tasks') }}">タスク</a></li>
+              <li><a class="nav-link" href="{{ url('/tasks/mypage') }}">マイページ</a></li>
               <li class="nav-item dropdown">
                 <a class="nav-link" href="{{ url('/logout') }}">ログアウト</a>
               </li>

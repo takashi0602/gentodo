@@ -2,7 +2,7 @@
 
 @section('content')
 <section>
-  <div class="">
+  <div>
     <p>ログアウトしますか？</p>
     <a class="" href="{{ route('logout') }}"
        onclick="event.preventDefault();

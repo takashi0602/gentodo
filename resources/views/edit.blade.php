@@ -2,7 +2,7 @@
 
 @section('content')
 <section>
-  <div class="c-container">
+  <div>
     <h1>編集</h1>
     <div class="u-mb2">
       <form action="{{ url('tasks/update') }}" method="POST">

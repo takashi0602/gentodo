@@ -27,6 +27,8 @@ Route::post('/tasks/update', 'TaskController@update');
 
 Route::post('/tasks/complete/', 'TaskController@complete');
 
+Route::get('/tasks/mypage', 'TaskController@mypage');
+
 Route::delete('/tasks/delete/{task}', 'TaskController@delete');
 
 Route::get('/logout', function() {

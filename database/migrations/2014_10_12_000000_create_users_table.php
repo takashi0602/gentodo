@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->integer('amount')->default(0);
+            $table->integer('record_id')->default(1);
             $table->timestamps();
         });
     }
