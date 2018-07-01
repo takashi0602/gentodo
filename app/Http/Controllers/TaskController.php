@@ -90,27 +90,20 @@ class TaskController extends Controller
 
     $amount = ++Auth::user()->amount;
 
-    if($amount >= 10 && $amount < 50) {
-      User::updateOrCreate(
-        [ 'id' => Auth::user()->id ],
-        [ 'amount' => $amount, 'record_id' => 2 ]
-      );
-    } elseif($amount >= 50 && $amount < 100) {
-      User::updateOrCreate(
-        [ 'id' => Auth::user()->id ],
-        [ 'amount' => $amount, 'record_id' => 3 ]
-      );
-    } elseif($amount >= 100) {
-      User::updateOrCreate(
-        [ 'id' => Auth::user()->id ],
-        [ 'amount' => $amount, 'record_id' => 4 ]
-      );
-    } else {
-      User::updateOrCreate(
-        [ 'id' => Auth::user()->id ],
-        [ 'amount' => ++Auth::user()->amount ]
-      );
+    $record_id = Auth::user()->record_id;
+
+    if($amount === 10) {
+      $record_id = 2;
+    } elseif($amount === 50) {
+      $record_id = 3;
+    } elseif($amount === 100) {
+      $record_id = 4;
     }
+
+    User::updateOrCreate(
+      [ 'id' => Auth::user()->id ],
+      [ 'amount' => $amount, 'record_id' => $record_id ]
+    );
 
     return redirect('/tasks');
   }

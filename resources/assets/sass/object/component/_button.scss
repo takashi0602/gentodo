@@ -1,9 +1,9 @@
 .c-btn {
-  background-color: #ccc;
+  background-color: #99ccff;
   border-radius: 20px;
   border: none;
   &:hover {
-    background-color: #aaa;
+    opacity: 0.6;
   }
   &:focus {
     outline: none;
