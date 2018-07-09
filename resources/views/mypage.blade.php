@@ -8,7 +8,7 @@
       <span>称号：</span>
       <div class="u-inlineblock">{{ $title }}</div>
     </div>
-    <div>
+    <div class="u-mb3">
       <span>名前：</span>
       <div class="u-inlineblock">{{ $u->name }}</div>
     </div>
