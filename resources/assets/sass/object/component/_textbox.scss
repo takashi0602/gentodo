@@ -6,3 +6,13 @@
 .c-textbox:focus {
   border: solid 1px #0099ff;
 }
+
+.c-textarea {
+  border:solid 1px #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+
+.c-textarea:focus {
+  border: solid 1px #0099ff;
+}

@@ -10493,6 +10493,16 @@ a.text-dark:focus {
   border: solid 1px #0099ff;
 }
 
+.c-textarea {
+  border: solid 1px #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+
+.c-textarea:focus {
+  border: solid 1px #0099ff;
+}
+
 .u-inline {
   display: inline;
 }
@@ -10662,6 +10672,66 @@ a.text-dark:focus {
 
 .u-ml5 {
   margin-left: 50px;
+}
+
+.u-mx0 {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.u-mx1 {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.u-mx2 {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.u-mx3 {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.u-mx4 {
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.u-mx5 {
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.u-my0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.u-my1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.u-my2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.u-my3 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.u-my4 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.u-my5 {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .u-p0 {
@@ -10865,6 +10935,10 @@ a.text-dark:focus {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+}
+
+.u-break-word {
+  word-wrap: break-word;
 }
 
 .navbar-laravel {

@@ -31,7 +31,8 @@ class TaskController extends Controller
   {
     // バリデーション
     $validator = Validator::make($request->all(), [
-      'task_name' => 'required | min: 1 | max: 50'
+      'task_name' => 'required | min: 1 | max: 50',
+      'task_description' => 'required | min: 1 | max: 200'
     ]);
 
     // バリデーションエラー
@@ -44,7 +45,8 @@ class TaskController extends Controller
     // createメソッド
     Task::create([
       'user_id' => Auth::user()->id,
-      'task_name' => $request->task_name
+      'task_name' => $request->task_name,
+      'task_description' => $request->task_description
     ]);
 
     return redirect('/tasks');
@@ -63,7 +65,8 @@ class TaskController extends Controller
   {
     // バリデーション
     $validator = Validator::make($request->all(), [
-      'task_name' => 'required | min: 1 | max: 50'
+      'task_name' => 'required | min: 1 | max: 50',
+      'task_description' => 'required | min: 1 | max: 200'
     ]);
 
     // バリデーションエラー
@@ -75,7 +78,7 @@ class TaskController extends Controller
 
     Task::updateOrCreate(
       [ 'user_id' => Auth::user()->id, 'id' => $request->id ],
-      [ 'task_name' => $request->task_name ]
+      [ 'task_name' => $request->task_name, 'task_description' => $request->task_description ]
     );
 
     return redirect('/tasks');
